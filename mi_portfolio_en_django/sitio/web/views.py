@@ -13,3 +13,4 @@ def page(request, page):
         return render(request, template_name)
     except Exception:
         raise Http404("Página no encontrada: " + template_name)
+    
