@@ -1,4 +1,11 @@
-
+:root {
+    --color-principal: #ff9e20; /* valor por defecto, será reemplazado por localStorage */
+    --fondo-principal: #ffffff;
+    --fondo-secundario: #f0f0f0;
+    --texto: #222222;
+    --boton: #dddddd;
+    --boton-hover: #cccccc;
+}
 
 /* ===== Modo oscuro ===== */
 body.oscuro {
