@@ -1,39 +1,65 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Laschera blog</title>
-        <script>
+
+<head>
+    <title>Laschera blog</title>
+    <script>
         const colorGuardado = localStorage.getItem('colorPrincipal');
         if (colorGuardado) {
             document.documentElement.style.setProperty('--color-principal', colorGuardado);
         }
-        </script>
-<link rel="stylesheet" href="{% static 'blog/style.css' %}">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext">
-        <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
-    </head>
-    <body>
-        <header class="page-header">
-            
-            <div class="container">
-                {% if user.is_authenticated %}
-                    <a href="{% url 'post_new' %}" class="top-menu">
-                        {% include './icons/file-earmark-plus.svg' %}
-                    </a>
-                {% endif %}
-                <h1><a href="/">Laschera Blog</a></h1>
+    </script>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext">
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+</head>
+
+<body>
+    <header class="page-header">
+
+        <div class="header-top">
+            <div class="left-actions">
+                <button id="btn-inicio" class="boton-estilo">
+                    <a href="http://127.0.0.1:8000/">Inicio</a>
+                </button>
             </div>
-        </header>
-        <main class="container">
-            <div class="row">
-                <div class="col">
+
+            <div class="right-actions">
+                <div class="color-selector">
+                    <button id="btn-colores" class="boton-estilo">Colores 🎨</button>
+                    <div id="color-panel" class="oculto">
+                        <span class="color-opcion" data-color="#e91e63" style="background-color: #e91e63;"></span>
+                        <span class="color-opcion" data-color="#4caf50" style="background-color: #4caf50;"></span>
+                        <span class="color-opcion" data-color="#f44336" style="background-color: #f44336;"></span>
+                        <span class="color-opcion" data-color="#ff9800" style="background-color: #ff9800;"></span>
+                        <span class="color-opcion" data-color="#ffeb3b" style="background-color: #ffeb3b;"></span>
+                        <span class="color-opcion" data-color="#9c27b0" style="background-color: #9c27b0;"></span>
+                    </div>
+                </div>
+                <button class="boton-estilo" onclick="toggleModo()">🌙</button>
+            </div>
+        </div>
+        <div class="container">
+            <h1><a>Laschera Blog</a></h1>
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu">
+                    {% include './icons/file-earmark-plus.svg' %}
+                </a>
+            {% endif %}
+        </div>
+    </header>
+    <main class="container">
+        <div class="row">
+            <div class="col">
                 {% block content %}
                 {% endblock %}
-                </div>
             </div>
-        </main>  
-        <script src="{% static 'js/script.js' %}"></script>
-    </body> 
+        </div>
+    </main>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
 </html>

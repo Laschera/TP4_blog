@@ -145,3 +145,92 @@ h1, h2, h3, h4 {
     box-shadow: 0 1px 5px rgba(0,0,0,0.1);
     transition: background-color 0.3s, color 0.3s;
 }
+
+.color-selector {
+  position: relative;
+  display: inline-block;
+}
+
+#color-panel {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+body.oscuro #color-panel {
+  background-color: #222;
+  border-color: #555;
+}
+
+#color-panel.oculto {
+  display: none;
+}
+
+.color-opcion {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.color-opcion:hover {
+  transform: scale(1.2);
+  border-color: #2196f3;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.left-actions,
+.right-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-header h1 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.boton-estilo {
+    background-color: var(--boton); /* gris claro por defecto */
+    color: var(--color-principal);  /* texto en color principal */
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.boton-estilo:hover {
+    background-color: var(--boton-hover); /* gris más oscuro al pasar el mouse */
+    color: white;
+}
+
+a,
+a:visited {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+a:hover {
+    text-decoration: underline; 
+}
